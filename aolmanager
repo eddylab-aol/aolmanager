@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# DEVICE INFO
+DEVICE=`cat /system/build.prop | grep ro.product.model | awk -F'=' '{print $2}'`
+#ANDROID
+#KERNEL
+#MEM
+
+# COLOR CODE
+RED='\033[0;31m'
+NC='\033[0m'
+YELLOW='\033[0;33m'
+
+# CHECK DIALOG INSTALL
+if [ ! -f /usr/bin/dialog ]; then
+	echo -e "${RED}[info]${NC}dialog not installed..."
+	apt-get update && apt-get install dialog -y
+	echo -e "${YELLOW}[info]${NC}dialog installed..."
+fi
+
+# MAIN MENU
+function mainmenu() {
+	
+	dialog --backtitle "AndroidOverLinux Manager" \
+		--menu "aolmanager on [$DEVICE]" 15 50 10 \
+		"[1]" "System Information" \
+		"[2]" "Basic Configuration" \
+		"[3]" "Service Management" \
+		"[4]" "Install Service" \
+		"[5]" "Install IOT Service" \
+		"[6]" "Miscelaeous System Tweak"
+
+}
+
+
+# SERVICE MENU
+
+# UPDATE MENU
+
+# IOT MENU
+
+# SERVICE INSTALL MENU
+
+# MAIN
+mainmenu
+
+
