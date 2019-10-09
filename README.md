@@ -1,4 +1,4 @@
-# aolmanager
+# aolmanager (in progress...)
 - manage your Android Over Linux 
 
 
